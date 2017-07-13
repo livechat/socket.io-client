@@ -2555,7 +2555,7 @@ JSONPPolling.prototype.doPoll = function () {
   this.script = script;
 
   var isUAgecko = 'undefined' != typeof navigator && /gecko/i.test(navigator.userAgent);
-  
+
   if (isUAgecko) {
     setTimeout(function () {
       var iframe = document.createElement('iframe');
@@ -4064,6 +4064,14 @@ var Blob = _dereq_('blob');
  */
 
 exports.encodePacket = function (packet, supportsBinary, utf8encode, callback) {
+ if (typeof utf8encode === 'function') {
+    originalEncode(packet, supportsBinary, false, utf8encode)
+    return
+  }
+  originalEncode(packet, supportsBinary, false, callback)
+}
+
+function originalEncode(packet, supportsBinary, utf8encode, callback) {
   if ('function' == typeof supportsBinary) {
     callback = supportsBinary;
     supportsBinary = false;
