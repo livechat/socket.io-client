@@ -11,7 +11,7 @@
   ],
   "dependencies": {
     "debug": "0.7.4",
-    "engine.io-client": "https://github.com/livechat/engine.io-client.git#c6e36014db6b4778491a7da95d0337244379a3f1",
+    "engine.io-client": "https://github.com/livechat/engine.io-client.git#lc3-fork",
     "component-bind": "1.0.0",
     "component-emitter": "1.1.2",
     "object-component": "0.0.3",
